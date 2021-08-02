@@ -32,7 +32,7 @@ For building and running the application you need:
 Running the application locally
 -------------------------------
 
-There are several ways to run a Spring Boot application on your local machine. One way is to execute the main method in the com.raghu.fta.FeatureToggleApplication class from your IDE.
+There are several ways to run a Spring Boot application on your local machine. One way is to execute the main method in the com.kantar.lookup.application.lookupapplication.LookupapplicationApplication class from your IDE.
 
 Download the zip or clone the Git repository.
 
