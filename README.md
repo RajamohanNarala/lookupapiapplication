@@ -47,3 +47,7 @@ mvn clean install
 mvn spring-boot:run
 
 The application uses the port: 8080
+
+Swagger URl
+
+http://localhost:8080/swagger-ui.html
