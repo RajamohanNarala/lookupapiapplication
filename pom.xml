@@ -12,7 +12,7 @@
 	<artifactId>lookupapplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>lookupapplication</name>
-	<description>Look Up Application</description>
+	<description>LookupApplication</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -37,10 +37,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
+        	<groupId>org.projectlombok</groupId>
+        	<artifactId>lombok</artifactId>
+        	<!-- <version>1.18.20</version> -->
+        	<scope>provided</scope>
+    	</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
