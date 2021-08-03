@@ -1,15 +1,17 @@
 package com.kantar.lookup.application.lookupapplication.model;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table
-@Data
-public class LookUp {
+@Getter
+@Setter
+public class Lookup {
 
 		@Id
         private int panelistId;
@@ -21,6 +23,7 @@ public class LookUp {
         private String role;
         private String local;
         private String currentOwner;
+        
 		public int getPanelistId() {
 			return panelistId;
 		}
@@ -75,5 +78,5 @@ public class LookUp {
 		public void setCurrentOwner(String currentOwner) {
 			this.currentOwner = currentOwner;
 		}
-        
+		
 }

@@ -1,28 +1,34 @@
 package com.kantar.lookup.application.lookupapplication.service;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kantar.lookup.application.lookupapplication.model.LookUp;
-import com.kantar.lookup.application.lookupapplication.repository.LookUpRepository;
+import com.kantar.lookup.application.lookupapplication.model.Lookup;
+import com.kantar.lookup.application.lookupapplication.repository.PanelistManagermentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class LookUpServiceImpl implements LookUpService{
+public class LookupServiceImpl implements LookupService{
+	
+	private static final Logger LOGGER=LoggerFactory.getLogger(LookupServiceImpl.class);
 
 	@Autowired
-    private LookUpRepository lookUpRepository;
+    private PanelistManagermentRepository lookupRepository;
 
-    public List<LookUp> fetchLooUpData() {
+    public List<Lookup> fetchLooUpData(int id) {
     	
-    	//List<LookUp> lookUpList = lookUpRepository.findAll();
+    	//List<LookUp> lookUpList = lookupRepository.findAll();
     	
-        List<LookUp> lookUpList = new ArrayList<>();
+        List<Lookup> lookUpList = new ArrayList<>();
+        
+        LOGGER.debug("service method");
 
-        LookUp lookUp = new LookUp();
+        Lookup lookUp = new Lookup();
         lookUp.setPanelistId(121);
         lookUp.setHouseholdId(121);
         lookUp.setUserName("stan_lie");
@@ -34,20 +40,9 @@ public class LookUpServiceImpl implements LookUpService{
         lookUp.setCurrentOwner("Dev");
         lookUp.setRecruitedBy("Root");
 
-        LookUp lookUp1 = new LookUp();
-        lookUp1.setPanelistId(131);
-        lookUp1.setHouseholdId(131);
-        lookUp1.setUserName("Wan_ley");
-        lookUp1.setOptinStatus("Opt-In");
-        lookUp1.setPanelistStatus(true);
-        lookUp1.setRole("Panelist");
-        lookUp1.setRole("USER");
-        lookUp1.setLocal("EN_AU English");
-        lookUp1.setCurrentOwner("Stood");
-        lookUp1.setRecruitedBy("Joy");
 
         lookUpList.add(lookUp);
-        lookUpList.add(lookUp1);
+       
         
         return lookUpList;
     }

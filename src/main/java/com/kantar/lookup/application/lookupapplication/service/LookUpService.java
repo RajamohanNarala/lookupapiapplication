@@ -1,10 +1,10 @@
 package com.kantar.lookup.application.lookupapplication.service;
 
 import java.util.List;
-import com.kantar.lookup.application.lookupapplication.model.LookUp;
+import com.kantar.lookup.application.lookupapplication.model.Lookup;
 
 
-public interface LookUpService {
+public interface LookupService {
 
-    public List<LookUp> fetchLooUpData();
+    public List<Lookup> fetchLooUpData(int id);
 }

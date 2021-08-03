@@ -13,55 +13,43 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.kantar.lookup.application.lookupapplication.model.LookUp;
-import com.kantar.lookup.application.lookupapplication.repository.LookUpRepository;
+import com.kantar.lookup.application.lookupapplication.model.Lookup;
+import com.kantar.lookup.application.lookupapplication.repository.PanelistManagermentRepository;
+
 
 @RunWith(SpringRunner.class)
-public class LookUpServiceTest {
+public class LookupServiceTest {
 	
 	@Mock
-	private LookUpRepository lookUpRepository;
+	private PanelistManagermentRepository lookUpRepository;
 	
 	@InjectMocks
-	private LookUpServiceImpl lookUpService;
+	private LookupServiceImpl lookUpService;
 	
 	@Test
 	public void shouldReturnListOfLookUps() {
 		
-		List<LookUp> lookUpList = new ArrayList<>();
+		List<Lookup> lookUpList = new ArrayList<>();
 
-        LookUp lookUp = new LookUp();
-        lookUp.setPanelistId(121);
-        lookUp.setHouseholdId(121);
-        lookUp.setUserName("raj_narala");
-        lookUp.setOptinStatus("Opt-In");
-        lookUp.setPanelistStatus(true);
-        lookUp.setRole("Panelist");
-        lookUp.setRole("USER");
-        lookUp.setLocal("EN_AU English");
-        lookUp.setCurrentOwner("Rj");
-        lookUp.setRecruitedBy("Rj");
+        Lookup lookup = new Lookup();
+        lookup.setPanelistId(121);
+        lookup.setHouseholdId(121);
+        lookup.setUserName("raj_narala");
+        lookup.setOptinStatus("Opt-In");
+        lookup.setPanelistStatus(true);
+        lookup.setRole("Panelist");
+        lookup.setRole("USER");
+        lookup.setLocal("EN_AU English");
+        lookup.setCurrentOwner("Rj");
+        lookup.setRecruitedBy("Rj");
 
-        LookUp lookUp1 = new LookUp();
-        lookUp1.setPanelistId(111);
-        lookUp1.setHouseholdId(111);
-        lookUp1.setUserName("raj_narala");
-        lookUp1.setOptinStatus("Opt-In");
-        lookUp1.setPanelistStatus(true);
-        lookUp1.setRole("Panelist");
-        lookUp1.setRole("USER");
-        lookUp1.setLocal("EN_AU English");
-        lookUp1.setCurrentOwner("jr");
-        lookUp1.setRecruitedBy("jr");
-
-        lookUpList.add(lookUp);
-        lookUpList.add(lookUp1);
+        lookUpList.add(lookup);
         
         Mockito.when(lookUpRepository.findAll()).thenReturn(lookUpList);
         
-        List<LookUp> expectedList = lookUpService.fetchLooUpData();
+        List<Lookup> expectedList = lookUpService.fetchLooUpData(121);
         
-        assertEquals(expectedList.size(), 2);
+        assertEquals(expectedList.size(), 1);
 		
 	}
 
